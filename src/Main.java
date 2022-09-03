@@ -1,9 +1,9 @@
 //  Домашки урока 6 ("Условный оператор. Часть 2")
 public class Main {
     public static void main(String[] args) {
-        System.out.println();
 //  ДЗ 1, 2
         {
+            System.out.println();
             byte clientOS = 1;
             int clientDeviceYear = 2015;
             if (clientOS >= 0 && clientOS < 2)
@@ -14,10 +14,13 @@ public class Main {
 
 //  ДЗ 3
         {
-
+            System.out.println();
+            int year = 4000;
+            System.out.println();
+            System.out.printf("%d год %s.", year, isLeapYear(year));
         }
 
-        System.out.println();
+    System.out.println();
     }
 
     static String whatOS(byte clientOS) {
@@ -31,5 +34,10 @@ public class Main {
     static String whatVer(int phoneRelease) {
         if (phoneRelease < 2015) return " лёгкую";
         return "";
+    }
+
+    static String isLeapYear(int year) {
+        if (((year % 4) == 0 && (year % 100) != 0) || (year % 400) == 0) return "високосный";
+        else return "невисокосный";
     }
 }
