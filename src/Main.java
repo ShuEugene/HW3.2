@@ -5,10 +5,10 @@ public class Main {
 //  ДЗ 1, 2
         {
             byte clientOS = 1;
-            int phoneRelease = 2015;
+            int clientDeviceYear = 2015;
             if (clientOS >= 0 && clientOS < 2)
                 System.out.printf("Установите%s версию приложения для %s по ссылке...",
-                        whatVer(phoneRelease), whatOS(clientOS));
+                        whatVer(clientDeviceYear), whatOS(clientOS));
             else System.out.println("Номер ОС может принимать только одно из двух значений: 0 или 1.");
         }
 
