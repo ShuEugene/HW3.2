@@ -2,11 +2,20 @@
 public class Main {
     public static void main(String[] args) {
         System.out.println();
-//  ДЗ 1
-        byte clientOS = 2;
-        if (clientOS >= 0 && clientOS < 2)
-            System.out.printf("Установите версию приложения для %s по ссылке...", whatOS(clientOS));
-        else System.out.println("Номер ОС может принимать только одно из двух значений: 0 или 1.");
+//  ДЗ 1, 2
+        {
+            byte clientOS = 1;
+            int phoneRelease = 2015;
+            if (clientOS >= 0 && clientOS < 2)
+                System.out.printf("Установите%s версию приложения для %s по ссылке...",
+                        whatVer(phoneRelease), whatOS(clientOS));
+            else System.out.println("Номер ОС может принимать только одно из двух значений: 0 или 1.");
+        }
+
+//  ДЗ 3
+        {
+
+        }
 
         System.out.println();
     }
@@ -17,5 +26,10 @@ public class Main {
             case 1: return "Andriod";
             default: return "";
         }
+    }
+
+    static String whatVer(int phoneRelease) {
+        if (phoneRelease < 2015) return " лёгкую";
+        return "";
     }
 }
