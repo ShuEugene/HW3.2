@@ -17,12 +17,24 @@ public class Main {
             System.out.println();
             int year = 4000;
             System.out.println();
-            System.out.printf("%d год %s.", year, isLeapYear(year));
+            System.out.printf("%d год %s.\n", year, isLeapYear(year));
         }
 
-    System.out.println();
+//  ДЗ 4
+        {
+            System.out.println();
+            int deliveryDistance = 120;
+            if (deliveryDistance < 0)
+                System.out.println("Расстояние до клиента должно быть положительным.");
+            else if (deliveryDistance == 0) System.out.println("Услуги курьера не требуются; " +
+                    "клиент собирается забрать карту из отделения Банка.");
+            else System.out.printf("Дней на доставку: %s.\n", deliveryTime(deliveryDistance));
+        }
+
+        System.out.println();
     }
 
+//  ДЗ1
     static String whatOS(byte clientOS) {
         switch (clientOS) {
             case 0: return "iOS";
@@ -31,13 +43,35 @@ public class Main {
         }
     }
 
+//  ДЗ2
     static String whatVer(int phoneRelease) {
         if (phoneRelease < 2015) return " лёгкую";
         return "";
     }
 
+//  ДЗ3
     static String isLeapYear(int year) {
         if (((year % 4) == 0 && (year % 100) != 0) || (year % 400) == 0) return "високосный";
         else return "невисокосный";
+    }
+
+//  ДЗ4
+    static String deliveryTime(int deliveryDistance) {
+        switch (delDistType(deliveryDistance)){
+            case (1):
+                return "один";
+            case (2):
+                return "два";
+            case (3):
+                return "три";
+            default:
+                return "более трёх";
+        }
+    }
+    static byte delDistType(int deliveryDistance) {
+        if (deliveryDistance > 0 && deliveryDistance <= 20) return 1;
+        if (deliveryDistance > 20 && deliveryDistance <= 60) return 2;
+        if (deliveryDistance > 60 && deliveryDistance <= 100) return 3;
+        return 0;
     }
 }
