@@ -31,6 +31,16 @@ public class Main {
             else System.out.printf("Дней на доставку: %s.\n", deliveryTime(deliveryDistance));
         }
 
+//  ДЗ 5
+        {
+            System.out.println();
+            byte monthNumber = 5;
+            if (monthNumber > 0 && monthNumber <= 12)
+                System.out.printf("%d-й месяц года - %s. Это %s месяц.\n",
+                        monthNumber, monthName(monthNumber), seasonName(monthNumber));
+            else System.out.println(monthNumberError());
+        }
+
         System.out.println();
     }
 
@@ -74,4 +84,36 @@ public class Main {
         if (deliveryDistance > 60 && deliveryDistance <= 100) return 3;
         return 0;
     }
+
+//  ДЗ5
+    static String monthName(byte monthNumber) {
+        switch (monthNumber) {
+            case 1: return "Январь";
+            case 2: return "Февраль";
+            case 3: return "Март";
+            case 4: return "Апрель";
+            case 5: return "Май";
+            case 6: return "Июнь";
+            case 7: return "Июль";
+            case 8: return "Август";
+            case 9: return "Сентябрь";
+            case 10: return "Октябрь";
+            case 11: return "Ноябрь";
+            case 12: return "Декабрь";
+            default: return monthNumberError();
+        }
+    }
+    static String seasonName(byte monthNumber) {
+        switch (monthNumber) {
+            case 12: case 1: case 2: return "зимний";
+            case 3: case 4: case 5: return "весенний";
+            case 6: case 7: case 8: return "летний";
+            case 9: case 10: case 11: return "осенний";
+            default: return monthNumberError();
+        }
+    }
+    static String monthNumberError() {
+            return "По грегорианскому календарю в году 12 месяцев; ни больше, ни меньше.";
+        }
+
 }
